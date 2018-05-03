@@ -1,2 +1,2 @@
 # ArraySumOfNeighbours_2
-TEst
+Ostatnio popularny na forum temat związany z sumowaniem sąsiadów dla każdego elementu tablicy i zwracaniem maksymalnej ich sumy.
