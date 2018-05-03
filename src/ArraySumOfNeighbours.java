@@ -10,11 +10,11 @@ public class ArraySumOfNeighbours
         randomIntFillArray(randomIntArray);
         printArray(randomIntArray);
         System.out.println("Rows quantity: " + randomIntArray.length);
-        System.out.println("\nColumns quantity: " + randomIntArray[0].length);
-        System.out.println("sum of elements equal: " + getMaxSumOfNeighbours(randomIntArray).getMaxSum());
-        System.out.println("Element with maximum sum of neighbours values is in row: "
-                + (getMaxSumOfNeighbours(randomIntArray).getRowMaxSum()+1)
-                + " , column : " + (getMaxSumOfNeighbours(randomIntArray).getColumnMaxSum()+1));
+        System.out.println("Columns quantity: " + randomIntArray[0].length);
+        Maxelement maxelement = getMaxSumOfNeighbours(randomIntArray);
+        System.out.println("sum of elements equal: " + maxelement.getMaxSum());
+        System.out.println("Element with maximum sum of neighbours values is in row: " +(maxelement.getRowMaxSum()+1)
+                            + " , column : " + (maxelement.getColumnMaxSum()+1));
     }
 
     private static void printArray(int[][] array)
@@ -57,7 +57,7 @@ public class ArraySumOfNeighbours
                 {
                     for (int loopColumn = -1; loopColumn<2; loopColumn++)
                     {
-                        if (isElementExist(array, i+loopRow, j+loopColumn))
+                        if (((i+loopRow >=0) && (i+loopRow < array.length)) && ((j+loopColumn >= 0) && (j+loopColumn < array[0].length )))
                         {
                             tempSum += array[i+loopRow][j+loopColumn];
                         }
@@ -73,24 +73,10 @@ public class ArraySumOfNeighbours
                 }
             }
         }
-
-//        System.out.println("Element with maximum sum of neighbours values is in row: " + maxValueRow + " , column : " + maxValueColumn);
+        
         return maxelement;
     }
 
-    private static boolean isElementExist(int[][] data, int index1, int index2)
-    {
-        try
-        {
-            int a;
-            a =  data[index1][index2];
-            return true;
-        }
-        catch (ArrayIndexOutOfBoundsException e)
-        {
-            return false;
-        }
-    }
 }
 
 class Maxelement
